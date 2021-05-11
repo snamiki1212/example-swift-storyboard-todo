@@ -97,7 +97,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="hu0-Qa-aWZ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xNc-9X-lhu">
                             <connections>
-                                <segue destination="c4z-du-TCs" kind="showDetail" id="YNK-Dw-zCK"/>
+                                <segue destination="c4z-du-TCs" kind="showDetail" destinationCreationSelector="gotoUpsertPage:sender:" id="8V9-fe-kZy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -109,7 +109,7 @@
         <!--Root View Controller-->
         <scene sceneID="WCJ-iQ-vRg">
             <objects>
-                <tableViewController id="qL5-VB-1uT" sceneMemberID="viewController">
+                <tableViewController id="qL5-VB-1uT" customClass="UpsertTableViewController" customModule="SimpleTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6zY-I7-ZZL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,6 +150,9 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eHH-sN-Vbb"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="b11-kA-zWb"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="titleTextfield" destination="V6m-QO-Y6D" id="x66-Tq-Ylt"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gw-7g-mUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
