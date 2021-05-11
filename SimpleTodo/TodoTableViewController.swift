@@ -25,6 +25,7 @@ class TodoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     // MARK: - Data source of table view
@@ -39,11 +40,25 @@ class TodoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Todo", for: indexPath) as! TodoTableViewCell
-        
         let todo = list[indexPath.row]
         cell.update(item: todo)
         cell.showsReorderControl = true
-        
         return cell
     }
+    
+    // MARK: - Move feature
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = list.remove(at: sourceIndexPath.row)
+        list.insert(item, at: destinationIndexPath.row)
+    }
+    
+    // MARK: - Remove feature
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    
 }
