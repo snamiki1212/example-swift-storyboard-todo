@@ -68,13 +68,12 @@ class TodoTableViewController: UITableViewController {
     }
     
     // MARK: -
-    
     @IBSegueAction func gotoUpsertPage(_ coder: NSCoder, sender: Any) -> UpsertTableViewController? {
         let todo: Todo? = {
             if let cell = sender as? UITableViewCell,
-               let indexPath = tableView.indexPath(for: cell) {
-                let item = list[indexPath.row]
-                return item
+               let indexPath = tableView.indexPath(for: cell)
+            {
+                return list[indexPath.row]
             } else {
                 return nil
             }
