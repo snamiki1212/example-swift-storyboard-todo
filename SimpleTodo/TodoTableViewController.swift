@@ -61,5 +61,12 @@ class TodoTableViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
-    // MARK: --
+    // MARK: - Toggle on tap feature
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        list[indexPath.row].isCompleted = !list[indexPath.row].isCompleted
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    // MARK: -
+    
 }
