@@ -32,12 +32,9 @@ class TodoTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         list.count
     }
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Todo", for: indexPath) as! TodoTableViewCell
         let todo = list[indexPath.row]
@@ -59,6 +56,10 @@ class TodoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        list.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     
-    
+    // MARK: --
 }
