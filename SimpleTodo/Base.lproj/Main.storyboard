@@ -54,14 +54,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8vR-va-iAX">
                                                     <rect key="frame" x="50" y="0.0" width="306" height="69"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Buy a milk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK6-ps-7kO" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="0.0" width="306" height="48.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Milk is importance for humanity so you need to buy as soon as possible." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB4-eN-rHE">
-                                                            <rect key="frame" x="0.0" y="48.5" width="306" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy a milk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK6-ps-7kO" userLabel="Title">
+                                                            <rect key="frame" x="0.0" y="0.0" width="306" height="69"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -85,7 +79,6 @@
                                 <connections>
                                     <outlet property="checkboxLabel" destination="pha-65-Ydp" id="uhh-Lv-eV8"/>
                                     <outlet property="titleLabel" destination="IK6-ps-7kO" id="Nq7-zr-jmc"/>
-                                    <outlet property="todoDescriptionLabel" destination="JB4-eN-rHE" id="0gi-kY-bDR"/>
                                     <segue destination="c4z-du-TCs" kind="presentation" identifier="" trigger="accessoryAction" id="Kbn-KX-h8T"/>
                                 </connections>
                             </tableViewCell>

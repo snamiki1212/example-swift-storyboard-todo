@@ -10,14 +10,14 @@ import UIKit
 class TodoTableViewController: UITableViewController {
     
     var list = [
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
-        Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
+        Todo(title: "Buy a milk",   priority: 1),
     ]
     
     var selectedIdx: Int?
@@ -89,7 +89,6 @@ class TodoTableViewController: UITableViewController {
             let id = segue.identifier,
             id == "save"
         else { return }
-        
         
         if let selectedIdx = selectedIdx {
             // update case
