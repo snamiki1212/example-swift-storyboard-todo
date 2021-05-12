@@ -130,6 +130,9 @@
                                                     <rect key="frame" x="20" y="0.0" width="374" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editTitle:" destination="qL5-VB-1uT" eventType="editingChanged" id="4Nc-l3-WYA"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -148,15 +151,28 @@
                             <outlet property="delegate" destination="qL5-VB-1uT" id="FHP-A8-alJ"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="cancel" id="vnR-YC-NVw"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Root View Controller" id="qrq-NS-fGu">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eHH-sN-Vbb"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="b11-kA-zWb"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eHH-sN-Vbb">
+                            <connections>
+                                <segue destination="hfq-r2-8Kg" kind="unwind" identifier="cancel" unwindAction="unwindToTodoTableViewWithSegue:" id="kyq-Ed-vtg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="b11-kA-zWb">
+                            <connections>
+                                <segue destination="hfq-r2-8Kg" kind="unwind" identifier="save" unwindAction="unwindToTodoTableViewWithSegue:" id="YmV-2i-Td4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="titleTextfield" destination="V6m-QO-Y6D" id="x66-Tq-Ylt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gw-7g-mUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hfq-r2-8Kg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1597" y="450"/>
         </scene>
@@ -178,7 +194,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kbn-KX-h8T"/>
+        <segue reference="Ia8-KQ-MQq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

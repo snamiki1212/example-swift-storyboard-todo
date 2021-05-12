@@ -20,6 +20,7 @@ class TodoTableViewController: UITableViewController {
         Todo(title: "Buy a milk", todoDescription: "THIS IS DESCRIPTION", priority: 1),
     ]
     
+    var selectedIdx: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +72,7 @@ class TodoTableViewController: UITableViewController {
             if let cell = sender as? UITableViewCell,
                let indexPath = tableView.indexPath(for: cell)
             {
+                selectedIdx = indexPath.row
                 return list[indexPath.row]
             } else {
                 return nil
@@ -78,5 +80,20 @@ class TodoTableViewController: UITableViewController {
         }()
         
         return UpsertTableViewController(coder: coder, item: todo)
+    }
+    
+    // MARK: - go back from Upsert page
+    @IBAction func unwindToTodoTableView(segue: UIStoryboardSegue){
+        guard
+            let upsertVC = segue.source as? UpsertTableViewController,
+            let id = segue.identifier,
+            id == "save",
+            let selectedIdx = selectedIdx
+        else { return }
+        
+        // update
+        let path = IndexPath(row: selectedIdx, section: 0)
+        list[selectedIdx] = upsertVC.todo!
+        tableView.reloadRows(at: [path], with: .automatic)
     }
 }

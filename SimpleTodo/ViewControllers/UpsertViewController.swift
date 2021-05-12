@@ -27,11 +27,14 @@ class UpsertTableViewController: UITableViewController {
             title = "Edit"
             titleTextfield.text = todo.title
         } else {
+            todo = Todo(title: "", todoDescription: "", priority: 1)
             title = "New"
         }
     }
     
-    // MARK: -
-    
+    @IBAction func editTitle(_ sender: UITextField) {
+        todo?.title = sender.text ?? ""
+        print(todo?.title)
+    }
     
 }
