@@ -87,13 +87,18 @@ class TodoTableViewController: UITableViewController {
         guard
             let upsertVC = segue.source as? UpsertTableViewController,
             let id = segue.identifier,
-            id == "save",
-            let selectedIdx = selectedIdx
+            id == "save"
         else { return }
         
-        // update
-        let path = IndexPath(row: selectedIdx, section: 0)
-        list[selectedIdx] = upsertVC.todo!
-        tableView.reloadRows(at: [path], with: .automatic)
+        
+        if let selectedIdx = selectedIdx {
+            // update case
+            list[selectedIdx] = upsertVC.todo!
+        } else {
+            // insert case
+            list.append(upsertVC.todo!)
+        }
+        tableView.reloadData()
+        self.selectedIdx = nil
     }
 }
