@@ -27,19 +27,20 @@
         <scene sceneID="AEl-au-3xB">
             <objects>
                 <tableViewController id="dte-kB-Vbk" customClass="TodoTableViewController" customModule="SimpleTodo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xzF-kd-HFO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xzF-kd-HFO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Todo" rowHeight="69" id="8VX-RA-bzB" customClass="TodoTableViewCell" customModule="SimpleTodo">
-                                <rect key="frame" x="20" y="49.5" width="374" height="69"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Todo" rowHeight="69" id="8VX-RA-bzB" customClass="TodoTableViewCell" customModule="SimpleTodo">
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8VX-RA-bzB" id="sau-F5-UiZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="356" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XJj-dO-VSu">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="356" height="69"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pha-65-Ydp" userLabel="Check">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="69"/>
@@ -51,16 +52,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8vR-va-iAX">
-                                                    <rect key="frame" x="50" y="0.0" width="324" height="69"/>
+                                                    <rect key="frame" x="50" y="0.0" width="306" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Buy a milk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK6-ps-7kO" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="0.0" width="324" height="48.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="306" height="48.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Milk is importance for humanity so you need to buy as soon as possible." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB4-eN-rHE">
-                                                            <rect key="frame" x="0.0" y="48.5" width="324" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="48.5" width="306" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -97,7 +98,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="hu0-Qa-aWZ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xNc-9X-lhu">
                             <connections>
-                                <segue destination="c4z-du-TCs" kind="showDetail" destinationCreationSelector="gotoUpsertPage:sender:" id="8V9-fe-kZy"/>
+                                <segue destination="c4z-du-TCs" kind="showDetail" identifier="Upsert" destinationCreationSelector="gotoUpsertPage:sender:" id="8V9-fe-kZy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
