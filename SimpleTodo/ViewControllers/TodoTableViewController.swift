@@ -65,7 +65,7 @@ class TodoTableViewController: UITableViewController {
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    // MARK: - goto Upsert page for insert
+    // MARK: - Goto Upsert page
     @IBSegueAction func gotoUpsertPage(_ coder: NSCoder, sender: Any) -> UpsertTableViewController? {
         let todo: Todo? = {
             if let cell = sender as? UITableViewCell,
@@ -77,12 +77,6 @@ class TodoTableViewController: UITableViewController {
             }
         }()
         
-        print("TODO IS ", todo)
         return UpsertTableViewController(coder: coder, item: todo)
-    }
-    
-    // MARK: - goto Upsert page for update
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "Upsert", sender: nil)
     }
 }

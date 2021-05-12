@@ -86,6 +86,7 @@
                                     <outlet property="checkboxLabel" destination="pha-65-Ydp" id="uhh-Lv-eV8"/>
                                     <outlet property="titleLabel" destination="IK6-ps-7kO" id="Nq7-zr-jmc"/>
                                     <outlet property="todoDescriptionLabel" destination="JB4-eN-rHE" id="0gi-kY-bDR"/>
+                                    <segue destination="c4z-du-TCs" kind="presentation" identifier="" trigger="accessoryAction" id="Kbn-KX-h8T"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -98,7 +99,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="hu0-Qa-aWZ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xNc-9X-lhu">
                             <connections>
-                                <segue destination="c4z-du-TCs" kind="showDetail" identifier="Upsert" destinationCreationSelector="gotoUpsertPage:sender:" id="8V9-fe-kZy"/>
+                                <segue destination="c4z-du-TCs" kind="presentation" identifier="" id="Ia8-KQ-MQq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,7 +113,7 @@
             <objects>
                 <tableViewController id="qL5-VB-1uT" customClass="UpsertTableViewController" customModule="SimpleTodo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6zY-I7-ZZL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -164,11 +165,11 @@
             <objects>
                 <navigationController id="c4z-du-TCs" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pJx-nz-KrD">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="qL5-VB-1uT" kind="relationship" relationship="rootViewController" id="UFn-V4-tsx"/>
+                        <segue destination="qL5-VB-1uT" kind="relationship" relationship="rootViewController" destinationCreationSelector="gotoUpsertPage:sender:" id="UFn-V4-tsx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8iZ-jW-eFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,6 +177,9 @@
             <point key="canvasLocation" x="723" y="450"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kbn-KX-h8T"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
