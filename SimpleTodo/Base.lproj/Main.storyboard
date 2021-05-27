@@ -90,12 +90,22 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="2VB-Ge-oYt">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="hu0-Qa-aWZ"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xNc-9X-lhu">
-                            <connections>
-                                <segue destination="c4z-du-TCs" kind="presentation" identifier="" id="Ia8-KQ-MQq"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="xNc-9X-lhu">
+                                <connections>
+                                    <segue destination="c4z-du-TCs" kind="presentation" identifier="" id="Ia8-KQ-MQq"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Delete" id="XQ7-8g-PH6">
+                                <connections>
+                                    <action selector="tapDeleteButton:" destination="dte-kB-Vbk" id="S5d-uJ-RDf"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="deleteButton" destination="XQ7-8g-PH6" id="UpL-cg-gcH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MO-NV-9wr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

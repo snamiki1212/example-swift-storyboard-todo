@@ -22,9 +22,13 @@ class TodoTableViewController: UITableViewController {
     
     var selectedIdx: Int?
     
+    @IBOutlet var deleteButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
+        tableView.allowsMultipleSelectionDuringEditing = true
+        deleteButton.isEnabled = false
     }
     
     // MARK: - Data source of table view
@@ -48,7 +52,7 @@ class TodoTableViewController: UITableViewController {
         list.insert(item, at: destinationIndexPath.row)
     }
     
-    // MARK: - Remove feature
+    // MARK: - Remove single row feature
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -60,10 +64,54 @@ class TodoTableViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
+    // MARK: - Remove multi row feature
+    private func didSelectAndUnselectWhenToEdit(){
+        let canDelete:Bool = {
+            if let _ = tableView.indexPathsForSelectedRows {
+                return true
+            } else {
+                return false
+            }
+        }()
+        
+        self.deleteButton.isEnabled = canDelete
+    }
+    
+    @IBAction func tapDeleteButton(_ sender: UIBarButtonItem) {
+        tableView.deleteRows(at: tableView.indexPathsForSelectedRows!, with: .automatic)
+        
+        
+        print(tableView.indexPathsForSelectedRows)
+        list = list
+            .enumerated()
+            .filter {
+                let idx = $0.offset
+                return !tableView
+                    .indexPathsForSelectedRows!
+                    .contains { indexpath in
+                        indexpath.row == idx
+                    }
+            }
+            .map({ $0.element })
+        print(list)
+        tableView.indexPathsForSelectedRows
+        
+        self.deleteButton.isEnabled = false
+    }
+    
     // MARK: - Toggle on tap feature
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        list[indexPath.row].isCompleted = !list[indexPath.row].isCompleted
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        if tableView.isEditing {
+            didSelectAndUnselectWhenToEdit()
+        } else {
+            list[indexPath.row].isCompleted = !list[indexPath.row].isCompleted
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard tableView.isEditing else { return }
+        didSelectAndUnselectWhenToEdit()
     }
     
     // MARK: - Goto Upsert page
